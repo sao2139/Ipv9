@@ -61,9 +61,11 @@ graph TD
 
 ## Getting Started
 
-### Prerequisites
-- Windows 10 / 11 (64-bit)
-- Local Administrator privileges (required to create virtual Wintun network interfaces)
+### Prerequisites Before Installation
+- **Windows 10 / 11 (64-bit)**
+- **Administrator Privileges**: Required to create the virtual Wintun network interface during installation and operation.
+- **WebView2 Runtime**: Used for the native desktop dashboard (usually pre-installed on Windows 11, might require manual installation on older Windows 10 versions).
+- **Inno Setup 6 (For Developers Only)**: Required if you intend to compile the `.iss` installer script from source. *Note: When using Inno Setup IDE, please select **Build -> Compile** instead of "Run (F9)" to avoid debugger mismatch errors.*
 
 ### Installation
 1. Download the latest installer IPv9_Shield_Installer.exe from the Releases section.
