@@ -59,7 +59,7 @@ graph TD
 
 ---
 
-## ⚠️ Important Warnings Before Starting
+## Important Warnings Before Starting
 
 - **Temporary Internet Disruption**: Upon launching IPv9 Shield, your physical network adapter may temporarily disconnect or drop active connections while the system binds to the topological routing tables and spawns the virtual Wintun interface.
 - **Antivirus / Firewall Interference**: Because IPv9 Shield captures traffic at the system level and uses UDP broadcast for evasion, some aggressive antivirus software may flag the executable. You may need to add it to your exclusions list.
@@ -67,7 +67,7 @@ graph TD
 
 ---
 
-## 🔬 Proof of Concept / How to Test it Works
+## Proof of Concept / How to Test it Works
 
 1. **Launch Wireshark**: Open Wireshark and listen to your main physical network adapter (e.g., Wi-Fi or Ethernet).
 2. **Start IPv9 Shield**: Let the application perform the deep scan and secure the connection.
