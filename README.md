@@ -6,7 +6,7 @@
 [![Platform: Windows](https://img.shields.io/badge/Platform-Windows-0078d7.svg)](#requirements)
 [![Engine: Go / Rust](https://img.shields.io/badge/Engine-Go%20%2F%20Rust-00c4cc.svg)](#tech-stack)
 
-**IPv9 Shield** is a next-generation, Zero-Trust LAN overlay network router designed to deliver absolute privacy, firewall evasion, and local network isolation. By combining high-performance system-level networking with advanced cryptographic binding, it establishes an encrypted "Darknet" directly on your workstation.
+**IPv9 Shield** is a next-generation, Zero-Trust LAN overlay network router designed to deliver absolute privacy, firewall evasion, and local network isolation. By combining high-performance system-level networking with advanced cryptographic binding, it establishes an encrypted **Secure Overlay Network** directly on your workstation.
 
 ---
 
@@ -19,7 +19,7 @@ graph TD
     A[Outbound Network Traffic] --> B[Wintun Virtual Interface]
     B --> C{IPv9 Encryption Engine}
     C -->|Topological Binding: SHA-256| D[AES-256-GCM Encryption]
-    D -->|QUIC over UDP Broadcast| E[Secure LAN Darknet]
+    D -->|QUIC over UDP Broadcast| E[Encrypted LAN Overlay]
     F[React Webview2 Desktop GUI] <-->|Real-Time WebSocket| C
     C -->|Telemetry / Panic Mode| G[Circuit Breaker / Kill Switch]
     style C fill:#4F46E5,stroke:#312E81,stroke-width:2px,color:#fff
@@ -56,6 +56,23 @@ graph TD
 - **Frontend App**: React (TypeScript, custom UI design, high-frequency WebSockets telemetry).
 - **Desktop Wrapper**: Windows Webview2 (runs as a standalone, double-click application without terminal windows).
 - **Deployment**: Custom Inno Setup wrapper for single-click desktop deployment.
+
+---
+
+## ⚠️ Important Warnings Before Starting
+
+- **Temporary Internet Disruption**: Upon launching IPv9 Shield, your physical network adapter may temporarily disconnect or drop active connections while the system binds to the topological routing tables and spawns the virtual Wintun interface.
+- **Antivirus / Firewall Interference**: Because IPv9 Shield captures traffic at the system level and uses UDP broadcast for evasion, some aggressive antivirus software may flag the executable. You may need to add it to your exclusions list.
+- **Do not mix with other VPNs**: Running IPv9 Shield concurrently with other VPN clients (like OpenVPN or WireGuard) can cause routing loops or immediate network failure.
+
+---
+
+## 🔬 Proof of Concept / How to Test it Works
+
+1. **Launch Wireshark**: Open Wireshark and listen to your main physical network adapter (e.g., Wi-Fi or Ethernet).
+2. **Start IPv9 Shield**: Let the application perform the deep scan and secure the connection.
+3. **Analyze the Packets**: You will notice that standard TCP traffic (like HTTP/HTTPS) vanishes. Instead, Wireshark will only display rapid **UDP Broadcast (255.255.255.255)** packets.
+4. **Conclusion**: Your ISP or local router can no longer see the destination IPs or the content of your browsing, only encrypted UDP noise.
 
 ---
 
